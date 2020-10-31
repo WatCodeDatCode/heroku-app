@@ -4,6 +4,7 @@ const express = require("express");
 const mysql = require("mysql2");
 const app = express();
 const bodyParser = require("body-parser");
+const path = require("path");
 
 const port = process.env.PORT;
 
@@ -14,7 +15,9 @@ const connection = mysql.createConnection({
   database: process.env.DB_NAME,
 });
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.get("/", (req, res) => {
   res.send("It works!");
@@ -65,6 +68,10 @@ app.get("/api/office/:id", (req, res) => {
   );
 });
 
+app.get('/add-employee', function(req, res){
+  res.sendFile(path.join(__dirname + '/add-employee.html'));
+});
+
 app.post("/employees/new", (req, res) => {
   const employee = req.body;
   const employeeNumber = employee.employeeNumber;
@@ -75,6 +82,8 @@ app.post("/employees/new", (req, res) => {
   const extension = employee.extension;
   const officeCode = employee.officeCode;
   const reportsTo = employee.reportsTo;
+
+  console.log(employee)
 
   connection.query(
     `INSERT INTO employees 

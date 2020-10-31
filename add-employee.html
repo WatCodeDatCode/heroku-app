@@ -13,30 +13,30 @@
   <body>
     <div class="form-div">
       <h2>Add employee:</h2>
-      <form action="/employee/new" method="POST" enctype="application/json">
+      <form action="/employees/new" method="POST">
         <div class="name-div">
             <label for="firstName">First name:</label>
-            <input type="text" name="firstName" id="firstName" placeholder="Michael">
+            <input type="text" name="firstName" id="firstName" placeholder="Michael" required>
             <label for="lastName">Last name:</label>
-            <input type="text" name="lastName" id="lastName" placeholder="Scott">
+            <input type="text" name="lastName" id="lastName" placeholder="Scott" required>
         </div>
         <div>
-            <label for="employeeNumber">Employee ID:</label>
-            <input type="number" name="employeeNumber" id="employeeNumber" placeholder="123">
+            <label for="employeeNumber">Employee number:</label>
+            <input type="number" name="employeeNumber" id="employeeNumber" placeholder="123" required>
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email" placeholder="m.scott@dundermifflin.com">
+            <input type="email" name="email" id="email" placeholder="m.scott@dundermifflin.com" required>
         </div>
         <div>
             <label for="jobTitle">Employee's title:</label>
-            <input type="text" name="jobTitle" id="jobTitle" placeholder="Regional Manager">
+            <input type="text" name="jobTitle" id="jobTitle" placeholder="Regional Manager" required>
             <label for="extension">Phone extension:</label>
-            <input type="text" name="extension" id="extension" placeholder="#1234">
+            <input type="text" name="extension" id="extension" placeholder="#1234" required>
         </div>
         <div>
             <label for="officeCode">Office code:</label>
-            <input type="number" name="officeCode" id="officeCode" placeholder="1">
+            <input type="number" name="officeCode" id="officeCode" placeholder="1" required>
             <label for="reportsTo">Reports to:</label>
-            <input type="number" name="reportsTo" id="reportsTo" placeholder="1001">
+            <input type="number" name="reportsTo" id="reportsTo" placeholder="1001" required>
         </div>
         <button type="submit">Add employee</button>
       </form>
