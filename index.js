@@ -83,8 +83,6 @@ app.post("/employees/new", (req, res) => {
   const officeCode = employee.officeCode;
   const reportsTo = employee.reportsTo;
 
-  console.log(employee)
-
   connection.query(
     `INSERT INTO employees 
     (employeeNumber, lastName, firstName, email, jobTitle, extension, officeCode, reportsTo) 
